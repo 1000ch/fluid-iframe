@@ -42,7 +42,7 @@ export default class ResponsiveIframe extends HTMLElement {
         this.iframe.title = newValue;
         break;
       case 'aspect':
-        this.div.style.paddingTop = `${this.aspectRatio}%`;
+        this.div.style.paddingTop = `${this.aspectRatio * 100}%`;
         break;
     }
   }
@@ -96,7 +96,7 @@ export default class ResponsiveIframe extends HTMLElement {
    */
   get aspectRatio(): number {
     if (this.aspect == undefined) {
-      return 56.25;
+      return 0.5625;
     }
 
     const tokens = this.aspect.split(':');
@@ -105,7 +105,7 @@ export default class ResponsiveIframe extends HTMLElement {
     const ratio = height / width;
 
     if (Number.isNaN(ratio)) {
-      return 56.25;
+      return 0.5625;
     }
 
     return ratio;
@@ -115,12 +115,12 @@ export default class ResponsiveIframe extends HTMLElement {
     super();
 
     this.attachShadow({
-      mode: 'closed'
+      mode: 'open'
     }).innerHTML = templateHTML;
 
     this.div = this.shadowRoot?.querySelector('div') as HTMLElement;
     this.iframe = this.shadowRoot?.querySelector('iframe') as HTMLIFrameElement;
-    this.div.style.paddingTop = `${this.aspectRatio}%`;
+    this.div.style.paddingTop = `${this.aspectRatio * 100}%`;
 
     if (this.title) {
       this.iframe.title = this.title;
