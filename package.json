@@ -1,0 +1,48 @@
+{
+  "name": "fluid-iframe",
+  "version": "0.0.0",
+  "description": "Web Components which provides fluid width iframe.",
+  "homepage": "https://github.com/1000ch/fluid-iframe",
+  "bugs": {
+    "url": "https://github.com/1000ch/fluid-iframe/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/1000ch/fluid-iframe.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "1000ch",
+    "email": "shogosensui@gmail.com",
+    "web": "https://github.com/1000ch"
+  },
+  "scripts": {
+    "build": "tsc && terser --output dist/index.js dist/index.js",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "terser": "^4.3.1",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/test/*.test.ts"
+    ]
+  }
+}
