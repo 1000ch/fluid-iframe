@@ -1,6 +1,6 @@
 {
   "name": "fluid-iframe",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Web Components which provides fluid width iframe.",
   "homepage": "https://github.com/1000ch/fluid-iframe",
   "bugs": {
