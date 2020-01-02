@@ -21,7 +21,7 @@ const templateHTML = `
   </div>
 `;
 
-export default class ResponsiveIframe extends HTMLElement {
+export default class FluidIframe extends HTMLElement {
   div: HTMLElement;
   iframe: HTMLIFrameElement;
 
