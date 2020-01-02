@@ -48,7 +48,7 @@ export default class ResponsiveIframe extends HTMLElement {
   }
 
   /**
-   * Gets src property of the object.
+   * Get src property of the object.
    */
   get src(): string | undefined {
     if (this.hasAttribute('src')) {
@@ -59,7 +59,7 @@ export default class ResponsiveIframe extends HTMLElement {
   }
 
   /**
-   * Sets src property of the object.
+   * Set src property of the object.
    */
   set src(value: string | undefined) {
     if (value == null) {
@@ -70,7 +70,7 @@ export default class ResponsiveIframe extends HTMLElement {
   }
 
   /**
-   * Gets aspect property of the object.
+   * Get aspect property of the object.
    */
   get aspect(): string | undefined {
     if (this.hasAttribute('aspect')) {
@@ -81,7 +81,7 @@ export default class ResponsiveIframe extends HTMLElement {
   }
 
   /**
-   * Sets aspect property of the object.
+   * Set aspect property of the object.
    */
   set aspect(value: string | undefined) {
     if (value == null) {
@@ -92,7 +92,7 @@ export default class ResponsiveIframe extends HTMLElement {
   }
 
   /**
-   * Gets aspect ratio calculated from aspect property.
+   * Get aspect ratio calculated from aspect property.
    */
   get aspectRatio(): number {
     if (this.aspect == undefined) {

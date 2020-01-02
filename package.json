@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "tsc && terser --output dist/index.js dist/index.js",
-    "prepublishOnly": "npm run build",
+    "prepublish": "npm run build",
     "test": "jest"
   },
   "devDependencies": {
