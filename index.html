@@ -28,57 +28,97 @@
     <script defer src="https://unpkg.com/github-corner@2.0.2"></script>
     <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
     <script type="module">
+      import XMarked from 'https://cdn.jsdelivr.net/npm/x-marked/dist/index.js';
       import FluidIframe from 'https://cdn.jsdelivr.net/npm/fluid-iframe/dist/index.js';
+      customElements.define('x-marked', XMarked);
       customElements.define('fluid-iframe', FluidIframe);
 
       window.addEventListener('load', () => {
-        document.querySelectorAll('pre code').forEach(block => {
+        const xmarked = document.querySelector('x-marked');
+        xmarked.shadowRoot.querySelectorAll('pre code').forEach(block => {
           hljs.highlightBlock(block);
         });
+
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/github.min.css';
+        xmarked.shadowRoot.appendChild(link);
+
+        const div = document.querySelector('div');
+        const h2 = xmarked.shadowRoot.querySelector('h2');
+        xmarked.shadowRoot.querySelector('div').insertBefore(div, h2);
       });
     </script>
   </head>
   <body>
-    <github-corner>
-      <a href="https://github.com/1000ch/fluid-iframe">GitHub</a>
-    </github-corner>
-    <div class="container">
-      <h1><a href="https://github.com/1000ch/fluid-iframe">&lt;fluid-iframe&gt;</a></h1>
-      <p>Web Components which provides fluid width iframe.</p>
+    <div>
       <!-- Place this tag where you want the button to render. -->
       <a class="github-button" href="https://github.com/1000ch/fluid-iframe" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star 1000ch/fluid-iframe on GitHub">Star</a>
       <!-- Place this tag where you want the button to render. -->
       <a class="github-button" href="https://github.com/1000ch" data-size="large" data-show-count="true" aria-label="Follow @1000ch on GitHub">Follow @1000ch</a>
-      <h2>Demo</h2>
-      <fluid-iframe
-        src="https://www.youtube.com/embed/EqNHSrHzSOU"
-        title="Santa Tracker: Out Like A Light"
-        aspect="16:9">
-      </fluid-iframe>
-      <h2>Install</h2>
-      <pre><code class="bash"># via npm
-$ npm install fluid-iframe</code></pre>
-      <h2>Usage</h2>
-      <p>Import <code>FluidIframe</code> and register it as a custom element.</p>
-      <pre><code class="html">&lt;script type="module"&gt;
+    </div>
+    <github-corner>
+      <a href="https://github.com/1000ch/fluid-iframe">GitHub</a>
+    </github-corner>
+    <x-marked class="container">
+# `<fluid-iframe>`
+
+Web Components which provides fluid width `<iframe>`.
+
+## Install
+
+Using [npm](https://www.npmjs.org/package/fluid-iframe):
+
+```sh
+$ npm install fluid-iframe
+```
+
+## Demo
+
+<fluid-iframe
+  src="https://www.youtube.com/embed/EqNHSrHzSOU"
+  title="Santa Tracker: Out Like A Light"
+  aspect="16:9">
+</fluid-iframe>
+
+## Usage
+
+Import `FluidIframe` and register it as a custom element.
+
+```html
+<script type="module">
 import FluidIframe from 'https://cdn.jsdelivr.net/npm/fluid-iframe/dist/index.js';
 customElements.define('fluid-iframe', FluidIframe);
-&lt;/script&gt;</code></pre>
-      <p>Put <code>&lt;fluid-iframe&gt;</code>.</p>
-      <pre><code class="html">&lt;fluid-iframe
-  src=&quot;https://www.youtube.com/embed/EqNHSrHzSOU&quot;
-  title=&quot;Santa Tracker: Out Like A Light&quot;
-  aspect=&quot;16:9&quot;&gt;
-&lt;/fluid-iframe&gt;</code></pre>
-      <h2>API</h2>
-      <h3><code>src</code> attribute</h3>
-      <p>URL string which will be set as <code>&lt;iframe src&gt;</code>.</p>
-      <h3><code>title</code> attribute</h3>
-      <p>Title string which will be set as <code>&lt;iframe title&gt;</code>.</p>
-      <h3><code>aspect</code> attribute</h3>
-      <p><code>x:y</code> format string will be calculated for aspect ratio. Default value is <code>16:9</code>.</p>
-      <h2>License</h2>
-      <p><a href="https://1000ch.mit-license.org" rel="nofollow">MIT</a> © <a href="https://github.com/1000ch">Shogo Sensui</a></p>
-    </div>
+</script>
+```
+
+Put `<fluid-iframe>`.
+
+```html
+<fluid-iframe
+  src="https://www.youtube.com/embed/EqNHSrHzSOU"
+  title="Santa Tracker: Out Like A Light"
+  aspect="16:9">
+</fluid-iframe>
+```
+
+## API
+
+### `src` attribute
+
+URL string which will be set as `<iframe src>`.
+
+### `title` attribute
+
+Title string which will be set as `<iframe title>`.
+
+### `aspect` attribute
+
+`x:y` format string will be calculated for aspect ratio. Default value is `16:9`.
+
+## License
+
+[MIT](https://1000ch.mit-license.org) © [Shogo Sensui](https://github.com/1000ch)
+    </x-marked>
   </body>
 </html>
