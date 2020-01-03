@@ -1,6 +1,11 @@
 const templateHTML = `
   <style>
+    :host {
+      --aspectRatio: 16/9;
+    }
+
     div {
+      padding-top: calc(100% / (var(--aspectRatio)));
       position: relative;
       width: 100%;
     }
@@ -42,7 +47,7 @@ export default class FluidIframe extends HTMLElement {
         this.iframe.title = newValue;
         break;
       case 'aspect':
-        this.div.style.paddingTop = `${this.aspectRatio * 100}%`;
+        this.div.style.setProperty('--aspectRatio', this.aspectRatio);
         break;
     }
   }
@@ -86,7 +91,7 @@ export default class FluidIframe extends HTMLElement {
   set aspect(value: string | undefined) {
     if (value == null) {
       this.removeAttribute('aspect');
-    } else if (value.match(/\d+\:\d+/)) {
+    } else if (value.match(/\d+\/\d+/)) {
       this.setAttribute('aspect', value);
     }
   }
@@ -94,21 +99,12 @@ export default class FluidIframe extends HTMLElement {
   /**
    * Get aspect ratio calculated from aspect property.
    */
-  get aspectRatio(): number {
+  get aspectRatio(): string | null {
     if (this.aspect == undefined) {
-      return 0.5625;
+      return null;
     }
 
-    const tokens = this.aspect.split(':');
-    const width = Number(tokens[0]);
-    const height = Number(tokens[1]);
-    const ratio = height / width;
-
-    if (Number.isNaN(ratio)) {
-      return 0.5625;
-    }
-
-    return ratio;
+    return this.aspect;
   }
 
   constructor() {
@@ -120,7 +116,7 @@ export default class FluidIframe extends HTMLElement {
 
     this.div = this.shadowRoot?.querySelector('div') as HTMLElement;
     this.iframe = this.shadowRoot?.querySelector('iframe') as HTMLIFrameElement;
-    this.div.style.paddingTop = `${this.aspectRatio * 100}%`;
+    this.div.style.setProperty('--aspectRatio', this.aspectRatio);
 
     if (this.title) {
       this.iframe.title = this.title;
