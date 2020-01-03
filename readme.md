@@ -31,7 +31,7 @@ Put `<fluid-iframe>`.
 <fluid-iframe
   src="https://www.youtube.com/embed/EqNHSrHzSOU"
   title="Santa Tracker: Out Like A Light"
-  aspect="16:9">
+  aspect="16/9">
 </fluid-iframe>
 ```
 
@@ -47,7 +47,7 @@ Title string which will be set as `<iframe title>`.
 
 ### `aspect` attribute
 
-`x:y` format string will be calculated for aspect ratio. Default value is `16:9`.
+`x/y` format string will be calculated for aspect ratio. Default value is `16/9`.
 
 ## License
 
