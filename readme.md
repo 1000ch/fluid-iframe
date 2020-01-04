@@ -20,7 +20,7 @@ Import `FluidIframe` and register it as a custom element.
 
 ```html
 <script type="module">
-import FluidIframe from 'https://cdn.jsdelivr.net/npm/fluid-iframe/dist/index.js';
+import FluidIframe from 'https://unpkg.com/fluid-iframe/dist/index.js';
 customElements.define('fluid-iframe', FluidIframe);
 </script>
 ```
