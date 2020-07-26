@@ -1,10 +1,6 @@
-# `<fluid-iframe>`
+# fluid-iframe [![Build Status](https://travis-ci.org/1000ch/fluid-iframe.svg?branch=master)](https://travis-ci.org/1000ch/fluid-iframe) [![devDependency Status](https://david-dm.org/1000ch/fluid-iframe/dev-status.svg)](https://david-dm.org/1000ch/fluid-iframe?type=dev)
 
 > Web Components which provides fluid width `<iframe>`.
-
-[![Build Status](https://travis-ci.org/1000ch/fluid-iframe.svg?branch=master)](https://travis-ci.org/1000ch/fluid-iframe)
-[![NPM version](https://badge.fury.io/js/fluid-iframe.svg)](http://badge.fury.io/js/fluid-iframe)
-[![devDependency Status](https://david-dm.org/1000ch/fluid-iframe/dev-status.svg)](https://david-dm.org/1000ch/fluid-iframe?type=dev)
 
 ## Install
 
