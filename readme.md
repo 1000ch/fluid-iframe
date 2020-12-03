@@ -1,4 +1,4 @@
-# fluid-iframe [![Build Status](https://travis-ci.org/1000ch/fluid-iframe.svg?branch=master)](https://travis-ci.org/1000ch/fluid-iframe) [![devDependency Status](https://david-dm.org/1000ch/fluid-iframe/dev-status.svg)](https://david-dm.org/1000ch/fluid-iframe?type=dev)
+# fluid-iframe ![GitHub Actions Status](https://github.com/1000ch/fluid-iframe/workflows/test/badge.svg?branch=master) [![devDependency Status](https://david-dm.org/1000ch/fluid-iframe/dev-status.svg)](https://david-dm.org/1000ch/fluid-iframe?type=dev)
 
 > Web Components which provides fluid width `<iframe>`.
 
