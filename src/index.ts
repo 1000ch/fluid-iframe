@@ -114,8 +114,8 @@ export default class FluidIframe extends HTMLElement {
       mode: 'open'
     }).innerHTML = templateHTML;
 
-    this.div = this.shadowRoot?.querySelector('div') as HTMLElement;
-    this.iframe = this.shadowRoot?.querySelector('iframe') as HTMLIFrameElement;
+    this.div = this.shadowRoot?.querySelector<HTMLElement>('div')!;
+    this.iframe = this.shadowRoot?.querySelector<HTMLIFrameElement>('iframe')!;
     this.div.style.setProperty('--aspectRatio', this.aspectRatio);
 
     if (this.title) {
