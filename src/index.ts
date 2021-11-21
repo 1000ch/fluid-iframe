@@ -127,3 +127,9 @@ export default class FluidIframe extends HTMLElement {
     }
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'fluid-iframe': FluidIframe;
+  }
+}
