@@ -47,7 +47,7 @@ export default class FluidIframe extends HTMLElement {
         this.iframe.title = newValue;
         break;
       case 'aspect':
-        this.div.style.setProperty('--aspectRatio', this.aspectRatio);
+        this.div.style.setProperty('--aspectRatio', this.aspect ?? null);
         break;
     }
   }
@@ -96,17 +96,6 @@ export default class FluidIframe extends HTMLElement {
     }
   }
 
-  /**
-   * Get aspect ratio calculated from aspect property.
-   */
-  get aspectRatio(): string | null {
-    if (this.aspect == undefined) {
-      return null;
-    }
-
-    return this.aspect;
-  }
-
   constructor() {
     super();
 
@@ -116,7 +105,7 @@ export default class FluidIframe extends HTMLElement {
 
     this.div = this.shadowRoot?.querySelector<HTMLElement>('div')!;
     this.iframe = this.shadowRoot?.querySelector<HTMLIFrameElement>('iframe')!;
-    this.div.style.setProperty('--aspectRatio', this.aspectRatio);
+    this.div.style.setProperty('--aspectRatio', this.aspect ?? null);
 
     if (this.title) {
       this.iframe.title = this.title;
